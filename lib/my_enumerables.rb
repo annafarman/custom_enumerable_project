@@ -1,13 +1,17 @@
 module Enumerable
   # Your code goes here
   def my_all?
-
+    self.my_each do |element|
+      return false unless yield(element)
+    end
+    true
   end
 
   def my_any?
   end
 
   def my_count
+
   end
 
   def my_each_with_index
