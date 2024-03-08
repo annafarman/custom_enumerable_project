@@ -1,16 +1,5 @@
 module Enumerable
   # Your code goes here
-
-
-end
-
-# You will first have to define my_each
-# on the Array class. Methods defined in
-# your enumerable module will have access
-# to this method
-class Array
-  # Define my_each here
-
   def my_all_spec
   end
 
@@ -18,9 +7,6 @@ class Array
   end
 
   def my_count_spec
-  end
-
-  def my_each_spec
   end
 
   def my_each_with_index_spec
@@ -38,6 +24,27 @@ class Array
   def my_select_spec
   end
 
-  def my_
+end
+
+# You will first have to define my_each
+# on the Array class. Methods defined in
+# your enumerable module will have access
+# to this method
+class Array
+  # Define my_each here
+  def my_each
+    self.each do |element|
+      yield element if block_given?
+    end
+    self
+  end
+end
+
+class Hash
+  def my_each
+    self.each do |key, value|
+      yield key, value if block_given?
+    end
+    self
   end
 end
