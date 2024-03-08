@@ -1,27 +1,34 @@
 module Enumerable
   # Your code goes here
-  def my_all_spec
+  def my_all?
+
   end
 
-  def my_any_spec
+  def my_any?
   end
 
-  def my_count_spec
+  def my_count
   end
 
-  def my_each_with_index_spec
+  def my_each_with_index
+    index = 0
+    self.my_each do |element|
+      yield element, index
+      index += 1
+    end
+    self
   end
 
-  def my_inject_spec
+  def my_injec
   end
 
-  def my_map_spec
+  def my_map
   end
 
-  def my_none_spec
+  def my_none?
   end
 
-  def my_select_spec
+  def my_select
   end
 
 end
