@@ -35,10 +35,17 @@ module Enumerable
     self
   end
 
-  def my_injec
+  def my_inject
+    self.my_each do |element|
+    end
   end
 
   def my_map
+    result = []
+    self.my_each do |element|
+      result << yield(element)
+    end
+    result
   end
 
   def my_none?
@@ -49,6 +56,11 @@ module Enumerable
   end
 
   def my_select
+    result = []
+    self.my_each do |element|
+      result << element if yield(element)
+    end
+    result
   end
 
 end
