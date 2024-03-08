@@ -15,7 +15,15 @@ module Enumerable
   end
 
   def my_count
-
+    count = 0
+    if block_given?
+      self.my_each do |element|
+        count += 1 if yield (element)
+      end
+    else
+      self.my_each { count += 1 }
+    end
+    count
   end
 
   def my_each_with_index
