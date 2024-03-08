@@ -34,6 +34,10 @@ module Enumerable
   end
 
   def my_none?
+    self.my_each do |element|
+      return false if yield(element)
+    end
+    true
   end
 
   def my_select
