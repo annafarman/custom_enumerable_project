@@ -35,9 +35,12 @@ module Enumerable
     self
   end
 
-  def my_inject
-    self.my_each do |element|
+  def my_inject(initial_value = nil)
+    accumulator = initial_value.nil? ? first : initial_value
+    drop(initial_value.nil? ? 1 : 0).my_each do |element|
+      accumulator = yield(accumulator, element)
     end
+    accumulator
   end
 
   def my_map
